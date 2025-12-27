@@ -16,24 +16,34 @@ public class ControlEnemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       MoverEnemigo();
+
+    }
+    private void MoverEnemigo()
+    {
         //Time deltaTime se usa para hacer que el movimiento sea independiente de la velocidad de fotogramas
         // == se usa para comparar dos valores
         // Vector3.MoveTowards se usa para mover un objeto hacia una posición específica
-        if (moviendoHaciaFin)
+        // ? operador ternario para elegir entre dos valores
+        
+        Vector3 posicionDestino = (moviendoHaciaFin) ? posicionFin : posicionInicio;
+        transform.position = Vector3.MoveTowards(transform.position, posicionDestino, velocidad * Time.deltaTime);
+
+        if (transform.position == posicionFin)
         {
-            transform.position = Vector3.MoveTowards(transform.position, posicionFin, velocidad * Time.deltaTime);
-            if (transform.position == posicionFin)
-            {
-                moviendoHaciaFin = false;
-            }
+            moviendoHaciaFin = false;
         }
-        else
+        if (transform.position == posicionInicio)
         {
-            transform.position = Vector3.MoveTowards(transform.position, posicionInicio, velocidad * Time.deltaTime);
-            if (transform.position == posicionInicio)
-            {
-                moviendoHaciaFin = true;
-            }
+            moviendoHaciaFin = true;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Jugador"))
+        {
+           collision.gameObject.GetComponent<ControlJugador>().ReiniciarJugador();
         }
     }
 }
+
