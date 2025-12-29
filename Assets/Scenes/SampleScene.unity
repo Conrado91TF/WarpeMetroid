@@ -2428,6 +2428,7 @@ GameObject:
   - component: {fileID: 907205822}
   - component: {fileID: 907205821}
   - component: {fileID: 907205824}
+  - component: {fileID: 907205825}
   m_Layer: 0
   m_Name: player-idle-1
   m_TagString: Jugador
@@ -2582,8 +2583,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0bfd74dfcf7aa498abd3a27b86348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 3
-  FuerzaSalto: 10
+  velocidad: 8
+  FuerzaSalto: 5
+--- !u!95 &907205825
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907205819}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b852381eae506624baf2fbf42ac9c071, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1547117724
 GameObject:
   m_ObjectHideFlags: 0

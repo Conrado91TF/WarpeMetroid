@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class ControlJugador : MonoBehaviour
     private Rigidbody2D rb;
     public int FuerzaSalto;
     private SpriteRenderer sr;
+    private Animator anim;
 
 
     // getcomponent se usa para obtener el rigidbody2D del jugador
@@ -14,7 +16,7 @@ public class ControlJugador : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -34,7 +36,19 @@ public class ControlJugador : MonoBehaviour
     private void Update()
     {
         SaltoDelJugador();
+        animarJugador();
     }
+
+    private void animarJugador()
+    {
+        //JUGADOR SALTANDO
+        if (!EstaEnSuelo()) anim.Play("JugadorSaltando");
+        //JUGADOR CORRIENDO
+        else if ((rb.linearVelocity.x > 1 || rb.linearVelocity.x < -1) && rb.linearVelocity.y == 0) anim.Play("JugadorCorriendo");
+        //JUGADOR QUIETO
+        else if ((rb.linearVelocity.x < 1 || rb.linearVelocity.x > -1) && rb.linearVelocity.y == 0) anim.Play("JugadorQuieto");
+    }
+
     private void SaltoDelJugador()
     {
         // Input.GetKeyDown se usa para detectar si se ha presionado la tecla de salto
