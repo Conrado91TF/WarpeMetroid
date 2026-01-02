@@ -12,11 +12,17 @@ public class ControlJugador : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     private bool vulnerable;
+    private float tiempoInicio;
+    public int tiempoNivel;
+    private int tiempoEmpleado
+        ;
 
 
     // getcomponent se usa para obtener el rigidbody2D del jugador
     private void Start()
     {
+        // Time.time se usa para obtener el tiempo desde el inicio del juego
+        tiempoInicio = Time.time;
         vulnerable = true;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -70,14 +76,16 @@ public class ControlJugador : MonoBehaviour
         // flipX se usa para voltear el sprite del jugador horizontalmente
         // Otra forma de poner el codigo más corto es if (rb.velocity.x > 0) sr.flipX = false;
         // else if (rb.velocity.x < 0) sr.flipX = true;
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            sr.flipX = false;
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            sr.flipX = true;
-        }
+        if (Input.GetAxis("Horizontal") > 0) sr.flipX = false;
+        
+        else if (Input.GetAxis("Horizontal") < 0) sr.flipX = true;
+        
+        if (GameObject.FindGameObjectsWithTag("PowerUp").Length == 0)
+            GanarJuego();
+
+        tiempoEmpleado = (int)(Time.time - tiempoInicio);
+        if (tiempoNivel - tiempoEmpleado < 0) ReiniciarJugador();
+            
     }
     private bool EstaEnSuelo()
     {
@@ -124,6 +132,13 @@ public class ControlJugador : MonoBehaviour
     {
         vulnerable = true;
         sr.color = Color.white;
+    }
+
+    private void GanarJuego()
+    {
+        
+        puntuacion = (vidas * 100) + (tiempoNivel - tiempoEmpleado);
+        Debug.Log("¡Has ganado el juego!" + puntuacion);
     }
 }
 

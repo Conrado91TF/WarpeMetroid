@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -339,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
       propertyPath: m_Name
       value: PowerUp (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4306,8 +4314,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 8
+  vidas: 3
   puntuacion: 0
-  FuerzaSalto: 5
+  FuerzaSalto: 8
+  tiempoNive: 5
 --- !u!95 &907205825
 Animator:
   serializedVersion: 7
@@ -4382,6 +4392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4438,6 +4452,10 @@ PrefabInstance:
     - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
       propertyPath: m_Name
       value: PowerUp (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7788,6 +7806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7844,6 +7866,10 @@ PrefabInstance:
     - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
       propertyPath: m_Name
       value: PowerUp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7902,6 +7928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp
       objectReference: {fileID: 0}
+    - target: {fileID: 8294742815067432030, guid: 11f9e2dc6c69ba1478f44402b889e846, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7915,6 +7945,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 292083428291118832, guid: baae9305f9491d94eaba6cfdcaadb91e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4065567172984995766, guid: baae9305f9491d94eaba6cfdcaadb91e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18
@@ -8017,6 +8051,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264842770827943492, guid: 1cb2e3cc67fa76b44a73919c340bdba8, type: 3}
       propertyPath: posicionFin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853768748648933478, guid: 1cb2e3cc67fa76b44a73919c340bdba8, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4836414150971683768, guid: 1cb2e3cc67fa76b44a73919c340bdba8, type: 3}
