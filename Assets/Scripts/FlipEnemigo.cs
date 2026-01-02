@@ -3,12 +3,12 @@ using UnityEngine;
 public class FlipEnemigo : MonoBehaviour
 {
     private SpriteRenderer sr;
-    private float direccionAnterior;
+    private float direccionAnteriorX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    private void Start()
    {
-        direccionAnterior = transform.parent.position.x;
+        direccionAnteriorX = transform.parent.position.x;
         sr = GetComponent<SpriteRenderer>();
    }
 
@@ -16,9 +16,9 @@ public class FlipEnemigo : MonoBehaviour
     private void Update()
     {
         // movimiento hacia la derecha
-        sr.flipX = direccionAnterior < transform.position.x;
+        sr.flipX = direccionAnteriorX < transform.position.x;
 
         // movimiento hacia la izquierda
-        direccionAnterior = transform.position.x;
+        direccionAnteriorX = transform.position.x;
     }
 }

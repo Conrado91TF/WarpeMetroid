@@ -6,6 +6,8 @@ public class ControlJugador : MonoBehaviour
 {
     public int velocidad;
     private Rigidbody2D rb;
+
+    public int puntuacion;
     public int FuerzaSalto;
     private SpriteRenderer sr;
     private Animator anim;
@@ -95,6 +97,10 @@ public class ControlJugador : MonoBehaviour
         // SceneManager.LoadScene se usa para recargar la escena actual
         // SceneManager.GetActiveScene().name se usa para obtener el nombre de la escena actual
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void SumarPuntos(int puntos)
+    {
+        puntuacion += puntos;
     }
 }
 
