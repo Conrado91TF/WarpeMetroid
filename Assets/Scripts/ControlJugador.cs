@@ -6,16 +6,18 @@ public class ControlJugador : MonoBehaviour
 {
     public int velocidad;
     private Rigidbody2D rb;
-
+    public int vidas;
     public int puntuacion;
     public int FuerzaSalto;
     private SpriteRenderer sr;
     private Animator anim;
+    private bool vulnerable;
 
 
     // getcomponent se usa para obtener el rigidbody2D del jugador
     private void Start()
     {
+        vulnerable = true;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -101,6 +103,27 @@ public class ControlJugador : MonoBehaviour
     public void SumarPuntos(int puntos)
     {
         puntuacion += puntos;
+    }
+
+    public void QuitarVidas()
+    {
+        if (vulnerable)
+        {
+            vulnerable = false;
+            vidas--;
+            if (vidas == 0)
+            {
+                ReiniciarJugador();
+            }
+            Invoke("VolverAVulnerable", 1f);
+            sr.color = Color.red;
+        }
+
+    }
+    private void VolverAVulnerable()
+    {
+        vulnerable = true;
+        sr.color = Color.white;
     }
 }
 
