@@ -18,7 +18,7 @@ public class ControlHUD : MonoBehaviour
     {
         int segundos = tiempo % 60;
         int minutos = tiempo / 60;
-        textoTiempo.text = minutos.ToString("00") + ":" + segundos;
+        textoTiempo.text = minutos.ToString("00") + ":" + segundos.ToString("00");
     }
     public void setEsferasTxt(int esferas)
     {
