@@ -14,8 +14,10 @@ public class ControlJugador : MonoBehaviour
     private bool vulnerable;
     private float tiempoInicio;
     public int tiempoNivel;
-    private int tiempoEmpleado
-        ;
+    private int tiempoEmpleado;
+
+    public Canvas canvas;
+    private ControlHUD hud;
 
 
     // getcomponent se usa para obtener el rigidbody2D del jugador
@@ -27,6 +29,7 @@ public class ControlJugador : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        hud = canvas.GetComponent<ControlHUD>();
     }
 
     private void FixedUpdate()
@@ -79,11 +82,13 @@ public class ControlJugador : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0) sr.flipX = false;
         
         else if (Input.GetAxis("Horizontal") < 0) sr.flipX = true;
-        
+
+        hud.setEsferasTxt(GameObject.FindGameObjectsWithTag("PowerUp").Length);
         if (GameObject.FindGameObjectsWithTag("PowerUp").Length == 0)
             GanarJuego();
 
         tiempoEmpleado = (int)(Time.time - tiempoInicio);
+        hud.setTiempoTxt(tiempoNivel - tiempoEmpleado);
         if (tiempoNivel - tiempoEmpleado < 0) ReiniciarJugador();
             
     }
@@ -119,6 +124,7 @@ public class ControlJugador : MonoBehaviour
         {
             vulnerable = false;
             vidas--;
+            hud.setVidasTxt(vidas);
             if (vidas == 0)
             {
                 ReiniciarJugador();
